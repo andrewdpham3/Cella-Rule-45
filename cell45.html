@@ -60,7 +60,7 @@ for(var gen=0;gen<400;gen++)//for 400 generations
       if(cells[c]==0 && cells[c+1]==0)//rule 8
         cells[nextgen]==1;
     }
-    else if(cell==400){//special case for right edge cells
+    else if(cell==399){//special case for right edge cells
       if(cells[c-1]==1 && cells[c]==1)//rule 2
         cells[nextgen]==0;
       if(cells[c-1]==1 && cells[c]==0)//rule 4
