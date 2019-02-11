@@ -18,7 +18,7 @@ ul { list-style-type: none; }
 /*creates the grid*/
 .graph {
   display: inline-grid;
-  transform: rotate(90deg);
+  transform: rotateX(180deg) rotate(270deg);
   padding: 5px;
   border: 1px #e1e4e8 solid;
 }
@@ -44,21 +44,14 @@ firstgen[200]=1;//seed
 var cells = new Array(160000).fill(0);
 //copy our seeded first gen into allcells
 for(var i=0;i<400;i++)
-{
   cells[i]=firstgen[i];
- }
 //apply elementary cell automata rule 45
 for(var gen=0;gen<400;gen++)//for 400 generations
-{
-  for(var cell=0;cell<400;cell++)//for 400 cells
-  {
+  for(var cell=0;cell<400;cell++){//for 400 cells
     var c = gen * 400 + cell;//index of current cell
     var nextgen = c + 400;//index of corresponding cell in next gen
-	
-    if(cell==0)//special case for left edge cells
-	{
-      if(cells[c]==1 && cells[c+1]==1)
-	  //rule 5
+    if(cell==0){//special case for left edge cells
+      if(cells[c]==1 && cells[c+1]==1)//rule 5
         cells[nextgen]=1;
       if(cells[c]==1 && cells[c+1]==0)//rule 6
         cells[nextgen]=1;
@@ -67,9 +60,7 @@ for(var gen=0;gen<400;gen++)//for 400 generations
       if(cells[c]==0 && cells[c+1]==0)//rule 8
         cells[nextgen]=1;
     }
-    else if(cell==399)//special case for right edge cells
-	{
-	
+    else if(cell==399){//special case for right edge cells
       if(cells[c-1]==1 && cells[c]==1)//rule 2
         cells[nextgen]=0;
       if(cells[c-1]==1 && cells[c]==0)//rule 4
@@ -79,8 +70,7 @@ for(var gen=0;gen<400;gen++)//for 400 generations
       if(cells[c-1]==0 && cells[c]==0)//rule 8
         cells[nextgen]=1;
     }
-    else //for all non-edge cells
-	{
+    else{ //for all non-edge cells
       if(cells[c-1]==1 && cells[c]==1 && cells[c+1]==1)//rule 1
         cells[nextgen]=0;
       if(cells[c-1]==1 && cells[c]==1 && cells[c+1]==0)//rule 2
@@ -98,7 +88,6 @@ for(var gen=0;gen<400;gen++)//for 400 generations
       if(cells[c-1]==0 && cells[c]==0 && cells[c+1]==0)//rule 8
         cells[nextgen]=1;
     }
-  }
   }
 //add squares
 const squares = document.querySelector('.squares');
