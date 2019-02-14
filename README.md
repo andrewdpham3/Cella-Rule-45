@@ -6,12 +6,14 @@ Allie
 
 Juan
 
-Run Instructions: Open cell45.html in a web browser. I tested in Chrome.
+Requirements: Javascript enabled web browser (tested in chrome). High resolution monitor recommended.
+
+Run Instructions: Open cell45.html in a web browser.
 
 Description: This program calculates generations of cells described by Wolfram ECA rule 45.
 
 Architecture: This program uses HTML to create a div for the graph and squares (ul div).
-CSS is used to style the graph. Javascript does all of the programming / logic of this program.
+CSS is used to style the graph. Javascript does all of the logic of this program.
 
 Javascript Function:
 
